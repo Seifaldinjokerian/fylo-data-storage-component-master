@@ -1,0 +1,242 @@
+:root {
+  --Pale-Blue: hsl(243, 100%, 93%);
+  --Grayish-Blue: hsl(229, 7%, 55%);
+  --Dark-Blue: hsl(228, 56%, 26%);
+  --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import url(https://fonts.google.com/specimen/Raleway);
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: grid;
+  place-content: end;
+  min-height: 100vh;
+  justify-content: center;
+  background: var(--Very-Dark-Blue);
+  margin: 0;
+
+}
+
+.container {
+  background: url(images/bg-desktop.png);
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 100vw;
+  position: relative;
+
+  .parent {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    display: flex;
+    align-items: end;
+    width: 80%;
+  }
+
+  .fyloCont {
+    width: 33%;
+    margin-right: 50px;
+    background: var(--Dark-Blue);
+    border-radius: 10px;
+    border-top-right-radius: 40% 75%;
+    padding: 20px;
+  }
+
+  .folder {
+    display: flex;
+    align-items: center;
+
+    >div {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background: var(--Very-Dark-Blue);
+    }
+  }
+
+  .usage {
+    width: 66%;
+    background: var(--Dark-Blue);
+    border-radius: 10px;
+    padding: 20px 50px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    >p {
+      margin: 0 0 25px;
+      color: var(--Grayish-Blue);
+      font-weight: 600;
+
+
+      span {
+        color: white;
+      }
+    }
+
+    .progress {
+      >div:first-of-type {
+        background: var(--Very-Dark-Blue);
+        margin: auto;
+        border-radius: 20px;
+        height: 15px;
+        position: relative;
+        outline: 2px solid var(--Very-Dark-Blue);
+
+        &::before {
+          content: "";
+          border-width: 15px;
+          border-style: solid;
+          border-color: whitesmoke whitesmoke transparent transparent;
+          position: absolute;
+          top: -55px;
+          right: 0;
+        }
+
+        span {
+          display: block;
+          width: 81.5%;
+          height: 100%;
+          border-radius: 20px;
+          background-image: linear-gradient(45deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+          position: relative;
+
+          &::before {
+            content: "";
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            right: 2px;
+            top: 50%;
+            margin-top: -5px;
+            width: 11px;
+            height: 11px;
+          }
+        }
+      }
+    }
+
+    .amount {
+
+      display: flex;
+      justify-content: space-between;
+      margin: 5px auto;
+      color: var(--Grayish-Blue);
+      font-weight: 600;
+    }
+  }
+
+  .before {
+    position: absolute;
+    top: -30px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 140px;
+    height: 60px;
+    font-weight: 600;
+    background: white;
+    color: var(--Grayish-Blue);
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    >div:first-of-type {
+      position: relative;
+      width: 40%;
+      height: 100%;
+
+      span {
+        position: absolute;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+      }
+
+      span:first-child {
+        top: 0px;
+        left: -5px;
+      }
+
+      span:nth-child(2) {
+        top: -5px;
+        left: 10px;
+      }
+
+      span:last-child {
+        top: 0px;
+        left: 27px;
+      }
+    }
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 700px) {
+  .container {
+    background-image: url(images/bg-mobile.png);
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+
+    .parent {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 25px;
+
+      .fyloCont {
+        margin: auto auto 30px;
+        width: 100%;
+
+      }
+
+      .usage {
+        width: 100%;
+        padding: 20px;
+
+        >p {
+          font-size: 14px;
+        }
+
+        .progress {
+          >div:first-of-type {
+            &::before {
+              display: none;
+            }
+          }
+        }
+
+        .before {
+          top: 120px;
+          right: 100px;
+        }
+      }
+    }
+  }
+
+  .attribution {
+    width: 100%;
+  }
+}
